@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Введение в React</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://htmlacademy.github.io/console.js/latest/css/style.css">
+  </head>
+  <body>
+    <div>
+        <p>В JSX мы можем обращаться к переменным. Для этого используется синтаксис фигурных скобок {}.</p>
+        <p><b><i>Пропсы можно только читать, в них нельзя ничего записывать. А когда пропсы изменяются, компонент перерисовывается.</i></b></p>
+        <img src="11.png" alt="">
+    </div>
+    <div id="root"></div>
+    <script src="https://htmlacademy.github.io/console.js/latest/js/index-silent.js"></script>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.18.5/babel.min.js"></script>
+    <script src="script11.jsx">
+   const containerElement = document.getElementById('root');
+
+function Message({from}) {
+  return <p>Вам письмо от <b>{from}</b></p>
+}
+
+function App() {
+  let senderName = 'Keks'
+  return (
+    <section>
+      <Message from={senderName} />
+    </section>
+  )
+}
+
+const root = ReactDOM.createRoot(containerElement);
+root.render(<App />);
+
+    </script>
+  </body>
+</html>

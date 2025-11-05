@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>Раз фигурные скобки в параметрах позволяют нам передавать произвольные JS-выражения, а JSX-элемент после преобразования — это вызов JS метода, значит, мы можем передать в параметр функции и JSX-элемент.</p>
+       <p>В этом примере компонент MyComponent получает в параметре children JSX-элемент и отрисовывает его у себя внутри. Мы использовали фигурные скобки для параметра children={..} и expression={2 + 2}. А содержимое элемента &lt;span&gt;2 + 2&lt;/span&gt; указано без фигурных скобок, и оно отобразится строкой.</p>
+       <p></p>
+       <p></p>
+        <img src="30.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+<script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent ({title, expression, children}) {
+      return (
+        <div className="container">
+          <h1 className="title">{title}</h1>
+          <p>Мой первый компонент</p>
+          <span className="expression">{children} = {expression}</span>
+        </div>
+      );
+    }
+    root.render(
+      <MyComponent
+        title="Hello React!"
+        expression={2 + 2}
+        children={
+          <span>2 + 2</span>
+        }
+      />
+    );
+  </script>
+  </body>
+</html>

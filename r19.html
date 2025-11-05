@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+  <style>
+        .container {
+            color: blue;
+            font-weight: bold;
+            background: aquamarine; /* Добавим фон для наглядности */
+            padding: 5px;
+            border: 2px solid darkcyan; /* Граница для видимости */
+        }
+    </style>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+        <p>Для повторяющихся блоков из элементов мы используем функцию. Она создаст нужные элементы, назначит им свойства и структуру вложенности. Именно так при работе с React мы объявляем пользовательские компоненты.</p>
+        <p>Чтобы отрисовать компонент на странице, мы передаём функцию-описание компонента методу React.createElement. Обратите внимание: наш код не вызывает эту функцию. Мы должны только объявить компонент и «познакомить» с ним React. Метод React.createElement сам определит, что ему передали функцию, а не строковое название тега.</p>
+
+        
+        <img src="19.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+<script>
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent () {
+      const title = React.createElement('h1', null, 'Hello React!');
+      const container = React.createElement('div', {className: 'container'}, title);
+      return container;
+    }
+    const element = React.createElement(MyComponent);
+    root.render(element);
+  </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Введение в React</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://htmlacademy.github.io/console.js/latest/css/style.css">
+  </head>
+  <body>
+    <div>
+        <p>одной из главных концепций React — к компонентам. Давайте сразу определимся, что является компонентом, а что элементом. Запомнить несложно.
+
+
+
+
+</p>
+        <p>Элементы — это «строительные кирпичики», из которых создаются компоненты. Одним словом, это основа для компонентов. В ранее рассмотренных примерах h1 — это элемент.</p>
+        <p>Теперь посмотрим, что из себя представляют компоненты. Начнём с простого. Все компоненты должны располагаться в файлах с расширением .jsx. Мы используем .js из-за особенностей инструмента демонстраций.</p>
+        <p>
+React поддерживает два вида компонентов: функциональные и классовые. Здесь мы привели пример функционального компонента. Функциональный компонент — обычная функция. Компонентом его делает факт, что эта функция возвращает JSX.</p>
+       <p> Все компоненты мы именуем с прописной буквы, например, App, MyAwesomeComponent и так далее. Это соглашение.</p>
+       <p>
+        А вот React-элементы именуются со строчной буквы. Легко отличить одну сущность от другой.
+       </p> 
+       <p>В примере мы создали компонент App. Пока он просто возвращает заголовок, но фактически в нём может находиться более сложный JSX. Это мы увидим в дальнейших примерах.</p>
+       <img src="5.png" alt="">
+    </div>
+    <div id="root"></div>
+    <script src="https://htmlacademy.github.io/console.js/latest/js/index-silent.js"></script>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.18.5/babel.min.js"></script>
+    <script src="script5.jsx">const containerElement = document.getElementById('root');
+
+function App() {
+  return (
+    <h1>Hello, world!</h1>
+  )
+}
+
+
+// Отрисуем элемент в контейнере
+const root = ReactDOM.createRoot(containerElement);
+root.render(<App />);</script>
+  </body>
+</html>

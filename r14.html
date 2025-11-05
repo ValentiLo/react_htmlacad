@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+        <p>В разметке страницы сейчас указан единственный элемент — корневой элемент приложения &lt;div id="root"&gt;. В нём наш скрипт будет создавать разметку.</p>
+
+    <p>
+    Начнём с того, что изменим текстовое содержимое корневого элемента, пока без использования библиотек. Найдём и сохраним элемент в переменной методом getElementById и изменим значение свойства textContent. Сейчас нам важно увидеть общий принцип — страница предоставляет только контейнер для отрисовки элементов, а за содержимое контейнера отвечает скрипт.</p>
+        
+        <img src="14.png" alt="">
+    </div>
+     <div id="root">
+    Корневой элемент приложения.
+  </div>
+  <script>
+    const container = document.getElementById('root');
+    container.textContent = 'Изменяем содержимое корневого элемента в скрипте.';
+  </script>
+
+  </body>
+</html>

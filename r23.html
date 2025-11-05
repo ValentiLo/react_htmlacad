@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .container {
+            color: blue;
+            font-weight: bold;
+            background: aquamarine; /* Добавим фон для наглядности */
+            padding: 5px;
+            border: 2px solid darkcyan; /* Граница для видимости */
+            
+        }
+    </style>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>
+        В синтаксисе <span>JSX</span> имя тега преобразуется в первый параметр метода <span>React.createElement</span>. Пользовательские компоненты обязательно должны начинаться с заглавной буквы.
+       </p>
+       <p>Значения атрибутов после имени тега будут собраны в объект и переданы вторым параметром в React.createElement. Например, <span>&lt;h1 className="title"&gt;</span> после преобразования даст <span>React.createElement('h1', {className: 'title'})</span>.</p>
+       
+       <p>В третий параметр <span>React.createElement</span>  попадает содержимое тега между угловыми скобками. Например,<span> &lt;p>Содержимое тега&lt;/p&gt;</span> будет преобразовано в <span>React.createElement('p', null, 'Содержимое тега')</span>.</p>
+       <p>
+        <pre>
+        &lt;script type="text/babel"&gt;
+            const container = document.getElementById('root');
+            const root = ReactDOM.createRoot(container);
+            function MyComponent () {
+              const title = &lt;h1 className="title"&gt;JSX&lt;/h1&gt;;
+              const text = &lt;p>Упрощает написание кода.&lt;/p&gt;;
+              return React.createElement(
+                'div', {className: 'container'}, title, text
+              );
+            }
+            root.render(&lt;MyComponent/&gt;);
+        &lt;/script&gt;
+        </pre>
+       </p>
+        <img src="23.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+<script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent () {
+      const title = <h1 className="title">JSX</h1>;
+      const text = <p>Упрощает написание кода.</p>;
+      return React.createElement(
+        'div', {className: 'container'}, title, text
+      );
+    }
+    root.render(<MyComponent/>);
+  </script>
+  </body>
+</html>

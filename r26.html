@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>Но если в содержимом JSX-элемента сразу указать другие <span>JSX-элементы</span>, то <span>Babel</span> «догадается», что это не строки, и сразу без фигурных скобок заменит их на вызовы <span>React.createElement</span>.</p>
+       <p>Обратите внимание: у компонента обязательно должен быть единственный корневой элемент. Хотя наш код теперь выглядит как HTML, после преобразования браузер получит только вызовы JS-функций. А у функции может быть только одно возвращаемое в <span>return</span> значение.</p>
+    
+        <img src="26.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+<script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent () {
+      return (
+        <div className="container">
+          <h1 className="title">Hello React!</h1>
+          <p>Мой первый компонент</p>
+        </div>
+      );
+    }
+    root.render(<MyComponent/>);
+  </script>
+  </body>
+</html>

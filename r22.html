@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .container {
+            color: blue;
+            font-weight: bold;
+            background: aquamarine; /* Добавим фон для наглядности */
+            padding: 5px;
+            border: 2px solid darkcyan; /* Граница для видимости */
+            
+        }
+    </style>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>Мы уже увидели, что <span>React</span> упрощает и унифицирует создание элементов. Но даже с несколькими элементами видно, что вызовы <span>React.createElement</span> занимают больше места в коде, чем сами параметры элементов.</p>
+       <p>Чтобы упростить код, мы воспользуемся синтаксисом <span>JSX</span>. Браузер работает только со стандартным синтаксисом, поэтому нам нужно подключить библиотеку <span>Babel.js</span> и сказать браузеру, что содержимое тега &lt;script&gt; будет преобразовано.</p>
+       <p>Библиотека <span>Babel</span> найдёт на странице «свой» скрипт с <span>type="text/babel"</span> и заменит в нём все конструкции вида &lt;MyComponent/&gt; на <span>React.createElement(MyComponent)</span>.</p>
+       <p>
+        <pre>
+         &lt;script type="text/babel" &gt;
+            const container = document.getElementById('root');
+            const root = ReactDOM.createRoot(container);
+            function MyComponent () {
+              const title = React.createElement('h1', {className: 'title'}, 'Hello React!');
+              const text = React.createElement('p', null, 'Используем синтаксис JSX.');
+              const container = React.createElement(
+                'div', {className: 'container'}, [title, text]
+              );
+              return container;
+            }
+            const element = <MyComponent/>;
+            // Это равносильно строкам ниже:
+            // const element = React.createElement(MyComponent);
+            root.render(element);
+          &lt;/script&gt;
+        </pre>
+       </p>
+        <img src="22.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+<script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent () {
+      const title = React.createElement('h1', {className: 'title'}, 'Hello React!');
+      const text = React.createElement('p', null, 'Используем синтаксис JSX.');
+      const container = React.createElement(
+        'div', {className: 'container'}, [title, text]
+      );
+      return container;
+    }
+    const element = <MyComponent/>;
+    // Это равносильно строкам ниже:
+    // const element = React.createElement(MyComponent);
+    root.render(element);
+  </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>Напомним, атрибуты <span>JSX-элемента</span> будут переданы вторым параметром в метод <span>React.createElement</span> и записаны в свойства созданного <span>DOM-элемента</span>.</p>
+       <p>При создании пользовательского компонента значения атрибутов будут переданы в параметры функции-декларации компонента. Задача компонента — указать значения параметров вложенным элементам. Без явного указания на корневом элементе <span>className={className} </span>название класса для <span>&lt;MyComponent className="container"/&gt;</span> «потеряется», это только параметр функции. Мы снова использовали фигурные скобки, чтобы получить значение параметра, а не строку с текстом.</p>
+       <p></p>
+       <p></p>
+        <img src="28.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+<script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent ({title, className}) {
+      return (
+        <div className={className}>
+          <h1 className="title">{title}</h1>
+          <p>Мой первый компонент</p>
+        </div>
+      );
+    }
+    root.render(<MyComponent title="Hello React!" className="container"/>);
+  </script>
+  </body>
+</html>

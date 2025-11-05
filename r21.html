@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .container {
+            color: blue;
+            font-weight: bold;
+            background: aquamarine; /* Добавим фон для наглядности */
+            padding: 5px;
+            border: 2px solid darkcyan; /* Граница для видимости */
+            
+        }
+    </style>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>Другой способ создать несколько элементов-потомков — объединить их в массив и передать третьим параметром методу <span>React.createElement</span></p>
+       <pre>
+     &lt;script&gt;
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        function MyComponent () {
+          const title = React.createElement('h1', {className: 'title'}, 'Hello React!');
+          const text = React.createElement('p', null, '... или все вместе в массиве.');
+          const container = React.createElement(
+            'div', {className: 'container'}, [title, text]
+          );
+          return container;
+        }
+        const element = React.createElement(MyComponent);
+        root.render(element);
+    &lt;/script&gt;
+       </pre>
+       
+        <img src="21.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+<script>
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent () {
+      const title = React.createElement('h1', {className: 'title'}, 'Hello React!');
+      const text = React.createElement('p', null, '... или все вместе в массиве.');
+      const container = React.createElement(
+        'div', {className: 'container'}, [title, text]
+      );
+      return container;
+    }
+    const element = React.createElement(MyComponent);
+    root.render(element);
+  </script>
+  </body>
+</html>

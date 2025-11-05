@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>Пользовательские компоненты часто требуют дочерних элементов для отрисовки в собственной разметке. Для этого в синтаксисе JSX предусмотрена более удобная запись. Всё, что будет указано между открывающим и закрывающим тегами пользовательского элемента, автоматически попадает в параметр children.</p>
+       <p>Чтобы получить содержимое для пользовательского компонента, достаточно объявить параметр функции: <span>function MyComponent ({children})</span>.</p>
+       <p>Так мы можем описать структуру вложенности с пользовательскими компонентами как для обычных HTML-элементов.</p>
+      
+        <img src="31.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+  <script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent ({title, expression, children}) {
+      return (
+        <div className="container">
+          <h1 className="title">{title}</h1>
+          <p>Мой первый компонент</p>
+          <span className="expression">{children} = {expression}</span>
+        </div>
+      );
+    }
+    root.render(
+      <MyComponent
+        title="Hello React!"
+        expression={2 + 2}
+      >
+        <span>2 + 2</span>
+      </MyComponent>
+    );
+  </script>
+  </body>
+</html>

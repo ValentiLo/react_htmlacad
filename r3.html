@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Введение в React</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://htmlacademy.github.io/console.js/latest/css/style.css">
+  </head>
+  <body>
+    <div>
+        <p>Начнём с простого: создадим и отрисуем новый элемент в DOM. Воспроизведём пример, рассмотренный в первом шаге, но только на этот раз воспользуемся библиотекой React.</p>
+        <p>Создадим и отрисуем (отрендерим) заголовок на странице. Для решения задачи воспользуемся методом createElement. Обратите внимание, мы вызываем метод напрямую у объекта React. Например:</p>
+        <p>Метод createElement создаёт новый React-элемент. Это обычный объект, который содержит достаточно информации для отрисовки. Вторым аргументом метод createElement принимает объект настроек, где можно задать необходимые свойства для элемента. Например, значения для атрибутов.</p>
+        <p>Для отрисовки используем метод render у объекта ReactDOM. Почему именно у него, а не React? React может работать не только в браузере, но в других окружениях. Мы используем возможности React, а про детали отрисовки элементов в разных окружениях знают другие библиотеки.</p>
+        <img src="3.png" alt="">
+    </div>
+    <div id="root"></div>
+    <script src="https://htmlacademy.github.io/console.js/latest/js/index-silent.js"></script>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.18.5/babel.min.js"></script>
+    <script src="script3.js"></script>
+  </body>
+</html>

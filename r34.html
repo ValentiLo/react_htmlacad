@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="style.css">
+ <style>
+    .blog-article-img{width: 235px;height: 260px;}
+    .blog-article{display: flex; margin: 10px;}
+ </style>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>const articlesData = [
+  {
+    id: '1',
+    title: 'Стань частью команды',
+    from: '2021-10-20',
+    to: '2021-04-19',
+    img: 'blog-photo-1.jpg',
+    alt: 'Мужчина на яхте смотрит в бинокль',
+    text:
+      'Вы давно хотели попробовать себя в яхтинге – сейчас самое лучшее время! Мы набираем команду будущих шкиперов. За 6 занятий вы станете настоящим капитаном и в следующем сезоне сможете выйти в море!',
+  },
+  {
+    id: '2',
+    title: 'Рожденные в воде',
+    from: '2021-07-16',
+    to: '2021-07-23',
+    img: 'blog-photo-2.jpg',
+    alt: 'Дети и взрослые на яхте',
+    text:
+      'Подарите детям настоящее приключение! День с морскими пиратами на корабле – это время, проведённое на свежем воздухе, лучшая команда, веселые аниматоры, игры, соревнования, работа в команде и, конечно, море!',
+  },
+];
+
+window.articlesData = articlesData;
+</script>
+ <title>Новости</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // <!--
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App articlesData={articlesData}/>);
+
+    function App({articlesData}) {
+      const [firstArticle, secondArticle] = articlesData;
+      return (
+        <section className="blog">
+          <h2>Новости</h2>
+          <Article content={firstArticle} />
+          <Article content={secondArticle} isReverse />
+        </section>
+      );
+    }
+
+    function Article({content, isReverse}) {
+      const {title, from, to, img: src, alt, text} = content;
+      const formatDate = (date) => new Date(date).toLocaleDateString('ru', {
+        day: 'numeric',
+        month: 'long',
+      });
+
+      const articleClassName = `blog-article ${isReverse ? 'reverse' : ''} short`;
+      return (
+        <article className={articleClassName}>
+          <div className="blog-article-content">
+            <p className="blog-article-date">
+              <time dateTime={from}>{formatDate(from)}</time> -{' '}
+              <time dateTime={to}>{formatDate(to)}</time>
+            </p>
+            <h3>{title}</h3>
+            <p className="blog-article-description">{text}</p>
+            <button className="more" type="button">Читать дальше</button>
+          </div>
+          <img className="blog-article-img" src={src} alt={alt} width="235" height="260" />
+        </article>
+      );
+    }
+    // -->
+  </script>
+</body>
+</html>

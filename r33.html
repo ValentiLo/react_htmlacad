@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>Напоследок кратно перечислим важные особенности синтаксиса JSX:
+        <ul>
+          <li>компонент может вернуть только один корневой элемент;</li>
+          <li>в атрибутах используются названия свойств DOM-элементов;</li>
+          <li>пользовательские компоненты обязательно должны начинаться с заглавной буквы;</li>
+          <li>атрибуты пользовательских компонентов — это параметры функций;</li>
+          <li>одиночные теги должны быть закрыты.</li>
+      
+        </ul>
+       </p>
+       <p>Помните, хотя JSX очень похож на HTML-разметку, внутри «прячется» вызов JS-функций.</p>
+       <p></p>
+        <img src="33.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+ <script>
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent ({title}) {
+      return (
+        React.createElement('div', {className: 'container'}, [
+          React.createElement('h1', {className: 'title'}, title),
+          React.createElement('img', {src: '', alt: 'Мне нужен url'})
+        ])
+      );
+    }
+    root.render(
+      React.createElement(MyComponent, {title: 'Приложение на React без JSX'})
+    );
+  </script>
+  </body>
+</html>

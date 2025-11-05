@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Pics to words. Игра для изучения иностранных языков</title>
+ 
+  <link rel="stylesheet" href="styleSclad.css">
+   <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="data.jsx"></script>
+</head>
+<body>
+    <div class="cont">
+    <div> 
+        <ul> 
+        <li><a href="card1.html">Тема 1</a></li>
+        <li><a href="card2.html">Тема 2</a></li>
+        <li><a href="card3.html">Тема 3</a></li>
+        <li><a href="card4.html">Тема 4</a></li>
+        <li><a href="card5.html">Тема 5</a></li>
+        <li><a href="card6.html">Тема 6</a></li>
+        <li><a href="card7.html">Тема 7</a></li>
+        <li><a href="card8.html">Тема 8</a></li>
+        <li><a href="card9.html">Тема 9</a></li>
+        <li><a href="card10.html">Тема 10</a></li>
+        <li><a href="card11.html">Тема 11</a></li>
+        <li><a href="card12.html">Тема 12</a></li>
+        <li><a href="card13.html">Тема 13</a></li>
+        <li><a href="card14.html">Тема 14</a></li>
+        <li><a href="card15.html">Тема 15</a></li>
+        <li><a href="card16.html">Тема 16</a></li>
+        <li><a href="card17.html">Тема 17</a></li>
+        <li><a href="card18.html">Тема 18</a></li>
+        <li><a href="card19.html">Тема 19</a></li>
+        <li><a href="card20.html">Тема 20</a></li>
+        <li><a href="card21.html">Тема 21</a></li>
+        <li><a href="card22.html">Тема 22</a></li>
+        <li><a href="card23.html">Тема 23</a></li>
+        <li><a href="card24.html">Тема 24</a></li>
+        <li><a href="card25.html">Тема 25</a></li>
+    </ul>
+</div>
+  <div id="root" class="marg"></div>
+ <script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App/>);
+
+    function App() {
+      return (
+        <section className="game">
+          <ul className="cards">
+            <CardWord text="Kannettava"/>
+            <CardImage url="photo-card-5.jpg"/>
+            <CardImage url="photo-card-6.jpg"/>
+            <CardImage url="photo-card-1.jpg"/>
+            <CardWord text="Vuode"/>
+            <CardWord text="Talo"/>
+            <CardWord text="Koira"/>
+            <CardWord text="Teekannu"/>
+            <CardImage url="photo-card-2.jpg"/>
+            <CardImage url="photo-card-3.jpg"/>
+            <CardImage url="photo-card-4.jpg"/>
+            <CardWord text="Kuuloke"/>
+          </ul>
+        </section>
+      );
+    }
+
+    function CardImage({url}) {
+      return (
+        <li className="card">
+          <img src={url} width="185" height="100" alt=""/>
+        </li>
+      );
+    }
+
+    function CardWord({text}) {
+      return (
+        <li className="card">
+          <span>{text}</span>
+        </li>
+      );
+    }
+  </script>
+</div>
+   
+  
+  <div class="marg">
+   <p>Чтобы карточка могла отрисовать разные слова в разметке, добавим для компонента параметр text. Описание функции изменится на CardWord({text})</p>
+  <p>Компонент получит от родителя нужный текст, который нам нужно поместить в разметку. Для этого снова воспользуемся синтаксисом для выражений в JSX: &lt;span&gt;{text}&lt;/span&gt;. В карточке с картинкой мы использовали фигурные скобки для передачи значения переменной в атрибут элемента, а сейчас — для установки содержимого элемента из переменной.</p>
+  <p>
+    Теперь можно передать из игрового поля разные слова в карточку, например, так: &lt;CardWord text="Kannettava"/&gt;.
+  </p>
+</div>
+</body>
+</html>

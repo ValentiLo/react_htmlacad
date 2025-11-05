@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Введение в React</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://htmlacademy.github.io/console.js/latest/css/style.css">
+  </head>
+  <body>
+    <div>
+        <p>Как правило, в проекте много компонентов. По факту мы «разрезаем» свёрстанный макет на кусочки и создаём из них интерфейс.</p>
+        <p>React позволяет создавать из нескольких компонентов более сложные. Например, в компоненте App мы используем компонент Message. Таким образом, применяем паттерн «Композиция». Само собой, внутри App могут появляться и другие компоненты.</p>
+        <p>Принцип прост: большое разбиваем на мелкое. С помощью мелких компонентов мы можем переиспользовать код — вскоре увидим это на примерах.</p>
+        <img src="7.png" alt="">
+    </div>
+    <div id="root"></div>
+    <script src="https://htmlacademy.github.io/console.js/latest/js/index-silent.js"></script>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.18.5/babel.min.js"></script>
+    <script src="script7.jsx">
+   const containerElement = document.getElementById('root');
+
+function Message() {
+  return <p><b>Вам письмо!</b></p>
+}
+
+function App() {
+  return (
+    <section>
+      <Message />
+    </section>
+  )
+}
+
+const root = ReactDOM.createRoot(containerElement);
+root.render(<App />);
+
+    </script>
+  </body>
+</html>

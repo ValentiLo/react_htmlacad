@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script> -->
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .text-green {
+            color: green;
+            font-weight: bold;
+            background: yellow; /* Добавим фон для наглядности */
+            padding: 5px;
+        }
+        
+        .text-underline {
+            text-decoration: underline;
+            color: blue;
+            border: 2px solid red; /* Граница для видимости */
+            padding: 10px;
+        }
+    </style>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+      <a href="Пример1.html">Пример 1</a>
+        <p>Третий параметр метода React.createElement принимает содержимое элемента. Мы уже передавали в свойство строки, но это могут быть и дочерние элементы.</p>
+        <p>Добавим в заголовок элемент span с классом text-green, который изменяет цвет текста.Класс надо создать в стилях.</p>
+        <p>Например, так
+          <pre>
+          &lt;style &gt;
+        .text-green {
+            color: green;
+            font-weight: bold;
+            background: yellow; /* Добавим фон для наглядности */
+            padding: 5px;
+        }
+        
+        .text-underline {
+            text-decoration: underline;
+            color: blue;
+            border: 2px solid red; /* Граница для видимости */
+            padding: 10px;
+        }
+          &lt;/style&gt;
+        </pre>
+      </p>
+        <p>React предоставляет нам единообразный механизм для создания разных элементов и управления их свойствами и содержимым.</p>
+        
+        <img src="18.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+<script>
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    const child = React.createElement('span', { className: 'text-green' }, 'Hello React!');
+    const element = React.createElement('h1', { className: 'text-underline' }, child);
+    root.render(element);
+  </script>
+  </body>
+</html>

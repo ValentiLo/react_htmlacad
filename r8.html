@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Введение в React</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://htmlacademy.github.io/console.js/latest/css/style.css">
+  </head>
+  <body>
+    <div>
+        <p>Один и тот же компонент можно использовать несколько раз. В примере мы дважды воспользовались компонентом Message при создании App.</p>
+        
+        <img src="8.png" alt="">
+    </div>
+    <div id="root"></div>
+    <script src="https://htmlacademy.github.io/console.js/latest/js/index-silent.js"></script>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.18.5/babel.min.js"></script>
+    <script src="script8.jsx">
+   
+const containerElement = document.getElementById('root');
+
+function Message() {
+  return <p><b>Вам письмо!</b></p>
+}
+
+function App() {
+  return (
+    <section>
+      <Message />
+      <Message />
+    </section>
+  )
+}
+
+const root = ReactDOM.createRoot(containerElement);
+root.render(<App />);
+
+    </script>
+  </body>
+</html>

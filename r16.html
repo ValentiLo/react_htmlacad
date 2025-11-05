@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script> -->
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+        <p>Вам уже знакомы методы document.createElement и append (или appendChild), которые используются для создания и размещения элементов на странице.</p>
+        <p>React предоставляет свой механизм для создания элементов — метод React.createElement. При вызове первым параметром мы передаём тип элемента, вторым — его свойства, а затем содержимое элемента.</p>
+        <p>Создадим заголовок и для отрисовки на странице передадим его методу root.render.</p>
+        <img src="16.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+<script>
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    const element = React.createElement('h1', null, 'Hello React!');
+    // Другой способ добавить заголовок первого уровня
+    // const element = document.createElement('h1');
+    // element.append('Hello React!');
+    root.render(element);
+  </script>
+  </body>
+</html>

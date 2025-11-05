@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>React Debug Example</title>
+    <style>
+        .text-green {
+            color: green;
+            font-weight: bold;
+            background: yellow; /* Добавим фон для наглядности */
+            padding: 5px;
+        }
+        
+        .text-underline {
+            text-decoration: underline;
+            color: blue;
+            border: 2px solid red; /* Граница для видимости */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <p>Если вы видите этот текст, React еще не отрендерился</p>
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/babel">
+        console.log('Script started');
+        
+        try {
+            const container = document.getElementById('root');
+            console.log('Container:', container);
+            
+            const root = ReactDOM.createRoot(container);
+            console.log('Root created:', root);
+            
+            const element = (
+                <div>
+                    <h1 className="text-underline">
+                        <span className="text-green">Hello React!</span>
+                    </h1>
+                    <p>Если стили работают, текст должен быть зеленым и подчеркнутым</p>
+                </div>
+            );
+            
+            console.log('Element created:', element);
+            root.render(element);
+            console.log('Render completed');
+            
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    </script>
+</body>
+</html>

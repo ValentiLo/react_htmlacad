@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .container {
+            color: blue;
+            font-weight: bold;
+            background: aquamarine; /* Добавим фон для наглядности */
+            padding: 5px;
+            border: 2px solid darkcyan; /* Граница для видимости */
+            
+        }
+    </style>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>Содержимое тега по умолчанию воспринимается как строка. Мы передали в <span>JSX</span> для элемента <span>&lt;div className="container"&gt;</span> переменные <span>title</span> и <span>text</span>, но вместо элементов на странице отобразились названия переменных.</p>
+       <p></p>
+       <p></p>
+       <p></p>
+        <img src="24.png" alt="">
+    </div>
+     <h1>Результат работы скрипта</h1>
+     <p><pre>
+    &lt;script type="text/babel"&gt;
+          const container = document.getElementById('root');
+          const root = ReactDOM.createRoot(container);
+          function MyComponent () {
+            const title = &lt;h1 className="title"&gt;Hello React!&lt;/h1&gt;;
+            const text = &lt;p>Мой первый компонент&lt;/p&gt;;
+            return &lt;div className="container"&gt;title, text&lt;/div&gt;;
+          }
+          root.render(&lt;MyComponent/&gt;);
+    &lt;/script&gt;
+     </pre></p>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+ 
+<script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent () {
+      const title = <h1 className="title">Hello React!</h1>;
+      const text = <p>Мой первый компонент</p>;
+      return <div className="container">title, text</div>;
+    }
+    root.render(<MyComponent/>);
+  </script>
+  </body>
+</html>

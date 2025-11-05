@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Введение в React</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://htmlacademy.github.io/console.js/latest/css/style.css">
+  </head>
+  <body>
+    <div>
+        <p>У компонента может быть сколько угодно пропсов, но перебарщивать не стоит. Есть правило: если компонент принимает много пропсов, скорее всего, в нём скрываются несколько компонентов.</p>
+        <p>Обратите внимание на компонент Message. Вместо прямого обращения к объекту props, мы воспользовались деструктуризацией и извлекли необходимые пропсы — речь идёт о from. Это популярный приём, когда компонент принимает небольшое количество пропсов.</p>
+        <p></p>
+        <img src="10.png" alt="">
+    </div>
+    <div id="root"></div>
+    <script src="https://htmlacademy.github.io/console.js/latest/js/index-silent.js"></script>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.18.5/babel.min.js"></script>
+    <script src="script10.jsx">
+   const containerElement = document.getElementById('root');
+
+function Message({from}) {
+  return <p>Вам письмо от <b>{from}</b></p>
+}
+
+function App() {
+  return (
+    <section>
+      <Message from="Keks" />
+    </section>
+  )
+}
+
+const root = ReactDOM.createRoot(containerElement);
+root.render(<App />);
+
+
+    </script>
+  </body>
+</html>

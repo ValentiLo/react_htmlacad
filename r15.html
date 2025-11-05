@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script> -->
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script&gt;&gt;&gt; src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .container {
+    display: flex;
+    width: 600px;
+    border: red 1px solid;
+}
+
+.item {
+    width: 300px; /* Явно заданная ширина */
+    padding: 10px;
+}
+
+.auto {
+    flex-basis: auto; /* Использует width: 300px */
+     border: violet 1px solid;
+}
+
+.content {
+    flex-basis: content; /* Игнорирует width, размер по содержимому */
+     border: rgb(0, 0, 255) 1px solid;
+}
+
+.fixed {
+    flex-basis: 200px; /* Использует 200px, игнорирует width: 300px */
+     border: green 1px solid;
+}
+  </style>
+</head>
+  <body>
+    <div>
+      <div style="display: flex; width: 500px; border: 1px solid #333;">
+    <div style="width: 100px; flex-basis: auto; background: lightblue;">
+        Auto (100px width)
+    </div>
+    <div style="flex-basis: 200px; background: lightgreen;">
+        Explicit 200px
+    </div>
+</div>
+<div style="display: flex; flex-direction: column; height: 300px; border: 1px solid #333;">
+    <div style="height: 80px; flex-basis: auto; background: lightcoral;">
+        Auto (80px height)
+    </div>
+    <div style="flex-basis: 120px; background: lightyellow;">
+        Explicit 120px
+    </div>
+</div>
+
+<div class="container">
+    <div class="item auto">Auto</div>
+    <div class="item content">Content</div>
+    <div class="item fixed">200px</div>
+</div>
+
+<div style="display: flex; width: 600px;">
+    <div style="flex: 1 0 0%; background: lightblue;">1</div>
+    <div style="flex: 1 0 0%; background: lightgreen;">2</div>
+    <div style="flex: 1 0 0%; background: lightcoral;">3</div>
+</div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>Начнём постепенно использовать возможности библиотек для работы с документом. Сначала нам нужно указать, где находится корневой элемент приложения. Для этого передадим его методу ReactDOM.createRoot.</p>
+        <p>Вызов метода ReactDOM.createRoot вернёт нам «корень» приложения, объект с методами для работы с документом. Вызывая метод root.render, мы используем React для установки содержимого корневого элемента.</p>
+        <p>Пока всё просто, и сейчас нам важно увидеть ещё один принцип: мы отказались от использования стандартных свойств и методов элементов страницы. React сам определит, как именно нужно поместить параметр вызова root.render на страницу.</p>
+        <h1>Синтаксис для подключения через CDN (быстрый старт)</h1>
+        <p>
+           &lt;!-- React и ReactDOM через CDN -- &gt;
+          </p>
+     <p>&lt;script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"&gt;&lt;/script&gt;
+    </p>
+    <p> &lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"&gt;&lt;/script&gt;
+    </p>
+    <p>
+     &lt;!-- Babel для трансформации JSX --&gt;</p>
+     <p>&lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
+        </p>
+        <img src="15.png" alt="">
+    </div>
+     <div id="root">
+    Корневой элемент приложения.
+  </div>
+  <script>
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render('Hello React!');
+  </script>
+
+  </body>
+</html>

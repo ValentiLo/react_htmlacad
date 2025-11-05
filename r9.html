@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Введение в React</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://htmlacademy.github.io/console.js/latest/css/style.css">
+  </head>
+  <body>
+    <div>
+        <p>До сих пор мы рассматривали простые компоненты, которые выводят статичную разметку. Но в реальном мире нам интересно выводить данные. Например, мы можем вывести имя отправителя письма — для этого компонент Message должен уметь принимать данные.</p>
+        <p>Передача данных в компоненты осуществляется через пропсы (props). Это самый обычный объект. Получается, чтобы воспользоваться данными, нужно обратиться к определённому свойству объекта.</p>
+        <p>Добавить поддержку пропсов в функциональный компонент просто, достаточно определить параметр props. Обратите внимание, внутри компонента Message мы обращаемся к пропсу from. Мы ожидаем, что в него передадут информацию об отправителе.</p>
+        <p>Имя свойства from мы определили сами. Здесь может быть любое другое имя, например, sender или что-то ещё. Имена вы выбираете сами. Это контракт (интерфейс) компонента.</p>
+        <p>
+          Разберём, как передавать информацию в пропсы. Взгляните, как мы используем компонент Message внутри App. Информацию в пропсы мы передаём способом, похожим на установку атрибутов в HTML. Мы фактически задаём значение для пропса так, как обычно присваиваем значение атрибуту.
+        </p>
+        <img src="9.png" alt="">
+    </div>
+    <div id="root"></div>
+    <script src="https://htmlacademy.github.io/console.js/latest/js/index-silent.js"></script>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.18.5/babel.min.js"></script>
+    <script src="script9.jsx">
+   const containerElement = document.getElementById('root');
+
+function Message(props) {
+  return <p>Вам письмо от <b>{props.from}</b></p>
+}
+
+
+function App() {
+  return (
+    <section>
+      <Message from="Keks" />
+    </section>
+  )
+}
+
+const root = ReactDOM.createRoot(containerElement);
+root.render(<App />);
+
+    </script>
+  </body>
+</html>

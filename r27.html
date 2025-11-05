@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello React</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/react.development.js"></script>
+  <script src="vendor/react-dom.development.js"></script>
+    <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+  <body>
+    <div>
+      <h1>React. Основы синтаксиса</h1>
+       <p>Если мы хотим создать компонент, который возвращает элементы без лишних обёрток, то в React для такого случая есть встроенный компонент <span> &lt;React.Fragment&gt;</span>. Этот компонент вместо<span>DOM-элемента</span>  создаёт «фрагмент» документа, который объединяет вложенные в него элементы.</p>
+       <p>Библиотека <span>Babel</span> для работы с <span>React.Fragment</span> поддерживает упрощённый синтаксис в виде пустого тега (&lt;&gt;&lt;/&gt;). Благодаря этому мы можем создать блок без лишнего объединяющего элемента.</p>
+       <p></p>
+       <p></p>
+        <img src="27.png" alt="">
+    </div>
+    <div id="root">
+    Корневой элемент приложения. Всем, что внутри него, будет управлять библиотека React.
+  </div>
+   <script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    function MyComponent () {
+      return (
+        <>
+          <h1 className="title">Hello React!</h1>
+          <p>Компонент без корневого элемента.</p>
+        </>
+      );
+    }
+    root.render(<MyComponent/>);
+  </script>
+  </body>
+</html>

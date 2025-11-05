@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Pics to words. Игра для изучения иностранных языков</title>
+ 
+  <link rel="stylesheet" href="styleSclad.css">
+   <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="data.jsx"></script>
+</head>
+<body>
+    <div class="cont">
+    <div> 
+        <ul> 
+        <li><a href="card1.html">Тема 1</a></li>
+        <li><a href="card2.html">Тема 2</a></li>
+        <li><a href="card3.html">Тема 3</a></li>
+        <li><a href="card4.html">Тема 4</a></li>
+        <li><a href="card5.html">Тема 5</a></li>
+        <li><a href="card6.html">Тема 6</a></li>
+        <li><a href="card7.html">Тема 7</a></li>
+        <li><a href="card8.html">Тема 8</a></li>
+        <li><a href="card9.html">Тема 9</a></li>
+        <li><a href="card10.html">Тема 10</a></li>
+        <li><a href="card11.html">Тема 11</a></li>
+        <li><a href="card12.html">Тема 12</a></li>
+        <li><a href="card13.html">Тема 13</a></li>
+        <li><a href="card14.html">Тема 14</a></li>
+        <li><a href="card15.html">Тема 15</a></li>
+        <li><a href="card16.html">Тема 16</a></li>
+        <li><a href="card17.html">Тема 17</a></li>
+        <li><a href="card18.html">Тема 18</a></li>
+        <li><a href="card19.html">Тема 19</a></li>
+        <li><a href="card20.html">Тема 20</a></li>
+        <li><a href="card21.html">Тема 21</a></li>
+        <li><a href="card22.html">Тема 22</a></li>
+        <li><a href="card23.html">Тема 23</a></li>
+        <li><a href="card24.html">Тема 24</a></li>
+        <li><a href="card25.html">Тема 25</a></li>
+    </ul>
+</div>
+  <div id="root" class="marg"></div></div>
+   <script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App/>);
+
+    function App() {
+      return (
+        <section className="game">
+          <ul className="cards">
+            <li className="card">
+              <span>Kannettava</span>
+            </li>
+            <li className="card">
+              <img src="photo-card-5.jpg" width="185" height="100" alt=""/>
+            </li>
+            <li className="card disabled">
+              <img src="photo-card-6.jpg" width="185" height="100" alt=""/>
+            </li>
+            <li className="card">
+              <img src="photo-card-1.jpg" width="185" height="100" alt=""/>
+            </li>
+            <li className="card">
+              <span>Vuode</span>
+            </li>
+            <li className="card">
+              <span>Talo</span>
+            </li>
+            <li className="card disabled">
+              <span>Koira</span>
+            </li>
+            <li className="card selected">
+              <span>Teekannu</span>
+            </li>
+            <li className="card">
+              <img src="photo-card-2.jpg" width="185" height="100" alt=""/>
+            </li>
+            <li className="card">
+              <img src="photo-card-3.jpg" width="185" height="100" alt=""/>
+            </li>
+            <li className="card">
+              <img src="photo-card-4.jpg" width="185" height="100" alt=""/>
+            </li>
+            <li className="card">
+              <span>Kuuloke</span>
+            </li>
+          </ul>
+        </section>
+      );
+    }
+  </script>
+  
+  <div class="marg">
+   <p>Возьмём готовую вёрстку игрового поля.</p>
+   <p>Подключим стили и перенесём разметку из шаблона в компонент App.</p>
+   <p>
+При переносе правим разметку под синтаксис JSX: закрываем тег &lt;img/&gt;, классы элементов назначаем в атрибуте <span>className</span>.
+
+Если мы всё сделали правильно, то на странице увидим игровое поле. Элементы разметки созданы из JS!</p>
+  </div>
+</body>
+</html>

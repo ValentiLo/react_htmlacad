@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Pics to words. Игра для изучения иностранных языков</title>
+ 
+  <link rel="stylesheet" href="styleSclad.css">
+   <!-- React и ReactDOM через CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="data.jsx"></script>
+</head>
+<body>
+    <div class="cont">
+    <div> 
+        <ul> 
+        <li><a href="card1.html">Тема 1</a></li>
+        <li><a href="card2.html">Тема 2</a></li>
+        <li><a href="card3.html">Тема 3</a></li>
+        <li><a href="card4.html">Тема 4</a></li>
+        <li><a href="card5.html">Тема 5</a></li>
+        <li><a href="card6.html">Тема 6</a></li>
+        <li><a href="card7.html">Тема 7</a></li>
+        <li><a href="card8.html">Тема 8</a></li>
+        <li><a href="card9.html">Тема 9</a></li>
+        <li><a href="card10.html">Тема 10</a></li>
+        <li><a href="card11.html">Тема 11</a></li>
+        <li><a href="card12.html">Тема 12</a></li>
+        <li><a href="card13.html">Тема 13</a></li>
+        <li><a href="card14.html">Тема 14</a></li>
+        <li><a href="card15.html">Тема 15</a></li>
+        <li><a href="card16.html">Тема 16</a></li>
+        <li><a href="card17.html">Тема 17</a></li>
+        <li><a href="card18.html">Тема 18</a></li>
+        <li><a href="card19.html">Тема 19</a></li>
+        <li><a href="card20.html">Тема 20</a></li>
+        <li><a href="card21.html">Тема 21</a></li>
+        <li><a href="card22.html">Тема 22</a></li>
+        <li><a href="card23.html">Тема 23</a></li>
+        <li><a href="card24.html">Тема 24</a></li>
+        <li><a href="card25.html">Тема 25</a></li>
+    </ul>
+</div>
+  <div id="root"></div></div>
+   <script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App/>);
+
+    function App() {
+      return <div>Точка отсчёта для приложения</div>;
+    }
+  </script>
+  <div>
+    <p>В этой и следующих демонстрациях мы поэтапно реализуем игру-тренажёр для изучения иностранных языков Pics to words. Полный текст технического задания к проекту можно найти <a href="https://up.htmlacademy.ru/assets/intensives/fe-react/1/demos/8zzte6flbzifauc/assets/ТЗ.pdf" download="ТЗ к проекту Слова.pdf">тут<a href="ТЗ к проекту Слова.pdf">...........</a>.</a> </p>
+    <p>Наша задача на этом этапе — создать компоненты сетки игрового поля и научить их принимать входящие параметры</p>
+    <p>Приступим. Для начала подключим библиотеки React, ReactDOM и Babel. Затем добавим контейнер приложения в корневом элементе &lt;div id="root"&gt;&lt;/div&gt; и создадим заготовку для главного компонента нашего приложения App.</p>
+    <p></p>
+  </div>
+</body>
+</html>

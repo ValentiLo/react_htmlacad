@@ -11,7 +11,7 @@
     
     <!-- Babel для трансформации JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="data.jsx"></script>
+  <!-- <script src="data.jsx"></script> -->
 </head>
 <body>
     <div class="cont">
@@ -42,13 +42,72 @@
         <li><a href="card23.html">Тема 23</a></li>
         <li><a href="card24.html">Тема 24</a></li>
         <li><a href="card25.html">Тема 25</a></li>
+          <li><a href="card26.html">Тема 25</a></li>
+        <li><a href="card27.html">Тема 25</a></li>
+        <li><a href="card28.html">Тема 25</a></li>
+        <li><a href="card29.html">Тема 25</a></li>
+         <li><a href="card30.html">Тема 20</a></li>
+        <li><a href="card31.html">Тема 21</a></li>
+        <li><a href="card32.html">Тема 22</a></li>
+        <li><a href="card33.html">Тема 23</a></li>
+        <li><a href="card34.html">Тема 24</a></li>
+        <li><a href="card35.html">Тема 25</a></li>
+        <li><a href="card36.html">Тема 25</a></li>
+        <li><a href="card37.html">Тема 25</a></li>
+        <li><a href="card38.html">Тема 25</a></li>
+        <li><a href="card39.html">Тема 25</a></li>
+         <li><a href="card40.html">Тема 20</a></li>
+        <li><a href="card41.html">Тема 21</a></li>
+        <li><a href="card42.html">Тема 22</a></li>
+        <li><a href="card43.html">Тема 23</a></li>
+        <li><a href="card44.html">Тема 24</a></li>
+        <li><a href="card45.html">Тема 25</a></li>
+        <li><a href="card46.html">Тема 25</a></li>
+        <li><a href="card47.html">Тема 25</a></li>
+        <li><a href="card48.html">Тема 25</a></li>
+        <li><a href="card49.html">Тема 25</a></li>
+        <li><a href="figma1.html">Тема 25</a></li>
     </ul>
 </div>
   <div id="root" class="marg"></div></div>
    
   
   <div class="marg">
-   <p></p>
+   <p>Добавим текстовые карточки в массив cards. Для начала значение параметра text сформируем из порядкового номера text={`text-${i}`}.</p>
   </div>
+  <img src="sclad9.png" alt="">
+  <script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App/>);
+
+    function App() {
+      const cards = [];
+      for (const i of [1, 2, 3, 4]) {
+        cards.push(<Card type="image" url={`photo-card-${i}.jpg`}/>);
+      }
+      for (const i of [5, 6]) {
+        cards.push(<Card type="text" text={`text-${i}`}/>);
+      }
+      return (
+        <section className="game">
+          <ul className="cards">
+            {cards}
+          </ul>
+        </section>
+      );
+    }
+
+    function Card({url, text, type}) {
+      const content = type === 'image'
+        ? <img src={url} width="185" height="100" alt=""/>
+        : <span>{text}</span>;
+      return (
+        <li className="card">
+          {content}
+        </li>
+      );
+    }
+  </script>
 </body>
 </html>

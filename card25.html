@@ -11,7 +11,7 @@
     
     <!-- Babel для трансформации JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- <script src="data.jsx"></script> -->
+  <script src="data.jsx"></script>
 </head>
 <body>
     <div class="cont">
@@ -42,7 +42,7 @@
         <li><a href="card23.html">Тема 23</a></li>
         <li><a href="card24.html">Тема 24</a></li>
         <li><a href="card25.html">Тема 25</a></li>
-          <li><a href="card26.html">Тема 25</a></li>
+        <li><a href="card26.html">Тема 25</a></li>
         <li><a href="card27.html">Тема 25</a></li>
         <li><a href="card28.html">Тема 25</a></li>
         <li><a href="card29.html">Тема 25</a></li>
@@ -71,44 +71,61 @@
 </div>
   <div id="root" class="marg"></div></div>
    
+  
+  <div class="marg">
+<p>В этой демонстрации мы разберём, как реагировать на действия пользователя, и сделаем приложение интерактивным.</p>
+<p>Прежде чем приступить, вспомним текущее состояние проекта и чему мы научились.</p>
+<p>В приложении есть сетка карточек, которая оформлена компонентом Grid. Этот компонент содержит код для формирования списка карточек. Для отдельной карточки предусмотрен компонент Card. Приложение получает данные из внешнего файла и передаёт их в сетку.</p>
+
+  </div>
+  <img src="sclad25.png" alt="">
    <script type="text/babel">
     const container = document.getElementById('root');
     const root = ReactDOM.createRoot(container);
-    root.render(<App/>);
+    root.render(<App words={words} selectedItems={selectedItems} finishedItems={finishedItems}/>);
 
-    function App() {
-      const items = [1, 2, 3, 4, 5, 6];
-      const cards = items.map((i) => (
-        <Card
-          type={i > 4 && 'image'}
-          url={i > 4 && `photo-card-${i}.jpg`}
-          text={i > 4 || `some text ${i}`}
-        />
-      ));
+    function App({words = [], selectedItems = [], finishedItems = []}) {
       return (
         <section className="game">
-          <ul className="cards">
-            {cards}
-          </ul>
+          <Grid words={words} selectedItems={selectedItems} finishedItems={finishedItems}/>
         </section>
       );
     }
 
-    function Card({url, text, type}) {
+    function Grid({words, selectedItems, finishedItems}) {
+      const cards = words.map((item) => (
+        <Card
+          key={item.id}
+          type={item.type}
+          url={item.url}
+          text={item.word}
+          isSelected={selectedItems.includes(item.id)}
+          isFinished={finishedItems.includes(item.id)}
+        />
+      ));
+      return (
+        <ul className="cards">
+          {cards}
+        </ul>
+      );
+    }
+
+    function Card({url, text, type, isSelected = false, isFinished = true}) {
       const content = type === 'image'
         ? <img src={url} width="185" height="100" alt=""/>
         : <span>{text}</span>;
+
+      const className = `card ${
+        isSelected ? 'selected' : ''
+      } ${
+        isFinished ? 'disabled' : ''
+      }`;
       return (
-        <li className="card">
+        <li className={className}>
           {content}
         </li>
       );
     }
   </script>
-  <div class="marg">
-   <p>Запись кода для формирования списка карточек в виде цикла может быть громоздкой. Более компактно этот код можно переписать в преобразование массива методом map.</p>
-  <p>Изменим код: вместо цикла for (const i of [1, 2, 3, 4, 5, 6]) используем вызов метода map.</p>
-  <img src="sclad12.png" alt="">
-</div>
 </body>
 </html>

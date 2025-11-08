@@ -11,7 +11,7 @@
     
     <!-- Babel для трансформации JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- <script src="data.jsx"></script> -->
+  <script src="data.jsx"></script>
 </head>
 <body>
     <div class="cont">
@@ -71,18 +71,25 @@
 </div>
   <div id="root" class="marg"></div></div>
    
-   <script type="text/babel">
+  
+  <div class="marg">
+<p>Разберёмся со стилями карточки. Когда пользователь выбирает карточку, нужно добавлять класс selected на элемент <li>. Чтобы управлять выделением, добавим компоненту карточки ещё один параметр isSelected. Значение по умолчанию установим равным true.</p>
+<p>Для формирования класса элемента по условию воспользуемся тернарным оператором.</p>
+<p>Сейчас выделение есть на всех карточках. Значение параметра мы пока не передаём, а по умолчанию он true.</p>
+
+  </div>
+  <img src="sclad15.png" alt="">
+  <script type="text/babel">
     const container = document.getElementById('root');
     const root = ReactDOM.createRoot(container);
-    root.render(<App/>);
+    root.render(<App words={words}/>);
 
-    function App() {
-      const items = [1, 2, 3, 4, 5, 6];
-      const cards = items.map((i) => (
+    function App({words = []}) {
+      const cards = words.map((item) => (
         <Card
-          type={i > 4 && 'image'}
-          url={i > 4 && `photo-card-${i}.jpg`}
-          text={i > 4 || `some text ${i}`}
+          type={item.type}
+          url={item.url}
+          text={item.word}
         />
       ));
       return (
@@ -94,21 +101,17 @@
       );
     }
 
-    function Card({url, text, type}) {
+    function Card({url, text, type, isSelected = true}) {
       const content = type === 'image'
         ? <img src={url} width="185" height="100" alt=""/>
         : <span>{text}</span>;
+      const className = `card ${isSelected ? 'selected' : ''}`;
       return (
-        <li className="card">
+        <li className={className}>
           {content}
         </li>
       );
     }
   </script>
-  <div class="marg">
-   <p>Запись кода для формирования списка карточек в виде цикла может быть громоздкой. Более компактно этот код можно переписать в преобразование массива методом map.</p>
-  <p>Изменим код: вместо цикла for (const i of [1, 2, 3, 4, 5, 6]) используем вызов метода map.</p>
-  <img src="sclad12.png" alt="">
-</div>
 </body>
 </html>

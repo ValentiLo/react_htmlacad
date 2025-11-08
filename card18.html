@@ -11,7 +11,7 @@
     
     <!-- Babel для трансформации JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- <script src="data.jsx"></script> -->
+  <script src="data.jsx"></script>
 </head>
 <body>
     <div class="cont">
@@ -71,18 +71,25 @@
 </div>
   <div id="root" class="marg"></div></div>
    
+  
+  <div class="marg">
+<p>Мы хотим отображать состояние карточек в зависимости от их нахождения в списках выделенных и отгаданных. Сначала доработаем условие для выделения карточек. Пусть список выбранных карточек хранится в параметре selectedItems (ему мы задали значение по умолчанию [2, 3]). Для выделения выбранной карточки изменим условие на проверку нахождения значения в массиве. Если индекс карточки содержится в массиве selectedItems, то значение параметра isSelected устанавливаем в true. Для записи такого условия удобно использовать метод массива includes.</p>
+
+  </div>
+  <img src="sclad18.png" alt="">
    <script type="text/babel">
     const container = document.getElementById('root');
     const root = ReactDOM.createRoot(container);
-    root.render(<App/>);
+    root.render(<App words={words}/>);
 
-    function App() {
-      const items = [1, 2, 3, 4, 5, 6];
-      const cards = items.map((i) => (
+    function App({words = [], selectedItems = [2, 3]}) {
+      const cards = words.map((item, index) => (
         <Card
-          type={i > 4 && 'image'}
-          url={i > 4 && `photo-card-${i}.jpg`}
-          text={i > 4 || `some text ${i}`}
+          type={item.type}
+          url={item.url}
+          text={item.word}
+          isSelected={selectedItems.includes(index)}
+          isFinished={index > 3}
         />
       ));
       return (
@@ -94,21 +101,22 @@
       );
     }
 
-    function Card({url, text, type}) {
+    function Card({url, text, type, isSelected = false, isFinished = true}) {
       const content = type === 'image'
         ? <img src={url} width="185" height="100" alt=""/>
         : <span>{text}</span>;
+
+      const className = `card ${
+        isSelected ? 'selected' : ''
+      } ${
+        isFinished ? 'disabled' : ''
+      }`;
       return (
-        <li className="card">
+        <li className={className}>
           {content}
         </li>
       );
     }
   </script>
-  <div class="marg">
-   <p>Запись кода для формирования списка карточек в виде цикла может быть громоздкой. Более компактно этот код можно переписать в преобразование массива методом map.</p>
-  <p>Изменим код: вместо цикла for (const i of [1, 2, 3, 4, 5, 6]) используем вызов метода map.</p>
-  <img src="sclad12.png" alt="">
-</div>
 </body>
 </html>

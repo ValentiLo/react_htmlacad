@@ -42,70 +42,93 @@
         <li><a href="card23.html">Тема 23</a></li>
         <li><a href="card24.html">Тема 24</a></li>
         <li><a href="card25.html">Тема 25</a></li>
-          <li><a href="card26.html">Тема 25</a></li>
-        <li><a href="card27.html">Тема 25</a></li>
-        <li><a href="card28.html">Тема 25</a></li>
-        <li><a href="card29.html">Тема 25</a></li>
-         <li><a href="card30.html">Тема 20</a></li>
-        <li><a href="card31.html">Тема 21</a></li>
-        <li><a href="card32.html">Тема 22</a></li>
-        <li><a href="card33.html">Тема 23</a></li>
-        <li><a href="card34.html">Тема 24</a></li>
-        <li><a href="card35.html">Тема 25</a></li>
-        <li><a href="card36.html">Тема 25</a></li>
-        <li><a href="card37.html">Тема 25</a></li>
-        <li><a href="card38.html">Тема 25</a></li>
-        <li><a href="card39.html">Тема 25</a></li>
-         <li><a href="card40.html">Тема 20</a></li>
-        <li><a href="card41.html">Тема 21</a></li>
-        <li><a href="card42.html">Тема 22</a></li>
-        <li><a href="card43.html">Тема 23</a></li>
-        <li><a href="card44.html">Тема 24</a></li>
-        <li><a href="card45.html">Тема 25</a></li>
-        <li><a href="card46.html">Тема 25</a></li>
-        <li><a href="card47.html">Тема 25</a></li>
-        <li><a href="card48.html">Тема 25</a></li>
-        <li><a href="card49.html">Тема 25</a></li>
-        <li><a href="figma1.html">Тема 25</a></li>
+        <li><a href="card26.html">Тема 26</a></li>
+        <li><a href="card27.html">Тема 27</a></li>
+        <li><a href="card28.html">Тема 28</a></li>
+        <li><a href="card29.html">Тема 29</a></li>
+        <li><a href="card30.html">Тема 30</a></li>
+        <li><a href="card31.html">Тема 31</a></li>
+        <li><a href="card32.html">Тема 32</a></li>
+        <li><a href="card33.html">Тема 33</a></li>
+        <li><a href="card34.html">Тема 34</a></li>
+        <li><a href="card35.html">Тема 35</a></li>
+        <li><a href="card36.html">Тема 36</a></li>
+        <li><a href="card37.html">Тема 37</a></li>
+        <li><a href="card38.html">Тема 38</a></li>
+        <li><a href="card39.html">Тема 39</a></li>
+        <li><a href="card40.html">Тема 40</a></li>
+        <li><a href="card41.html">Тема 41</a></li>
+        <li><a href="card42.html">Тема 42</a></li>
+        <li><a href="card43.html">Тема 43</a></li>
+        <li><a href="card44.html">Тема 44</a></li>
+        <li><a href="card45.html">Тема 45</a></li>
+        <li><a href="card46.html">Тема 46</a></li>
+        <li><a href="card47.html">Тема 47</a></li>
+        <li><a href="card48.html">Тема 48</a></li>
+        <li><a href="card49.html">Тема 49</a></li>
+        <li><a href="figma1.html">Тема 50</a></li>
     </ul>
 </div>
   <div id="root" class="marg"></div></div>
    
   
   <div class="marg">
-   <p>Подключим внешние данные из файла data.js. В нём объявлена переменная words, которая после подключения файла будет доступна для приложения.</p>
-  <p>Объявим для корневого компонента приложения параметр words и передадим в него значение переменной words. В коде это выглядит так: <App words={words}/>. Для параметра укажем значение по умолчанию [] (пустой список). Так мы подстрахуем себя от ошибок, если данные из внешнего источника не придут. А ещё это будет подсказкой, что в параметре передаётся массив.</p>
-  <p>Теперь приложение отрисовывает карточки из внешних данных.</p>
+<p>Изменения в приложении должны происходить по клику пользователя на карточку. Поэтому добавим обработчик события onClick для элемента карточки. Чтобы проверить его работу, выведем сообщение в консоль.</p>
+<p></p>
+<p></p>
+<p></p>
   </div>
-  <img src="sclad14.png" alt="">
-  <script type="text/babel">
+  <img src="sclad27.png" alt="">
+   <script type="text/babel">
     const container = document.getElementById('root');
     const root = ReactDOM.createRoot(container);
     root.render(<App words={words}/>);
 
     function App({words = []}) {
-      const cards = words.map((item) => (
-        <Card
-          type={item.type}
-          url={item.url}
-          text={item.word}
-        />
-      ));
+      const selectedItems = ['1'];
+      const finishedItems = ['2'];
       return (
         <section className="game">
-          <ul className="cards">
-            {cards}
-          </ul>
+          <Grid words={words} selectedItems={selectedItems} finishedItems={finishedItems}/>
         </section>
       );
     }
 
-    function Card({url, text, type}) {
+    function Grid({words, selectedItems, finishedItems}) {
+      const cards = words.map((item) => (
+        <Card
+          key={item.id}
+          type={item.type}
+          url={item.url}
+          text={item.word}
+          isSelected={selectedItems.includes(item.id)}
+          isFinished={finishedItems.includes(item.id)}
+        />
+      ));
+      return (
+        <ul className="cards">
+          {cards}
+        </ul>
+      );
+    }
+
+    function Card({url, text, type, isSelected, isFinished}) {
       const content = type === 'image'
         ? <img src={url} width="185" height="100" alt=""/>
         : <span>{text}</span>;
+
+      const className = `card ${
+        isSelected ? 'selected' : ''
+      } ${
+        isFinished ? 'disabled' : ''
+      }`;
+
+      const handleClick = () => {
+        console.log('card clicked', url || text);
+      };
+
       return (
-        <li className="card">
+        <li onClick={handleClick} className={className}>
           {content}
         </li>
       );

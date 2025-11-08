@@ -11,7 +11,7 @@
     
     <!-- Babel для трансформации JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="data.jsx"></script>
+  <!-- <script src="data.jsx"></script> -->
 </head>
 <body>
     <div class="cont">
@@ -42,13 +42,75 @@
         <li><a href="card23.html">Тема 23</a></li>
         <li><a href="card24.html">Тема 24</a></li>
         <li><a href="card25.html">Тема 25</a></li>
+          <li><a href="card26.html">Тема 25</a></li>
+        <li><a href="card27.html">Тема 25</a></li>
+        <li><a href="card28.html">Тема 25</a></li>
+        <li><a href="card29.html">Тема 25</a></li>
+         <li><a href="card30.html">Тема 20</a></li>
+        <li><a href="card31.html">Тема 21</a></li>
+        <li><a href="card32.html">Тема 22</a></li>
+        <li><a href="card33.html">Тема 23</a></li>
+        <li><a href="card34.html">Тема 24</a></li>
+        <li><a href="card35.html">Тема 25</a></li>
+        <li><a href="card36.html">Тема 25</a></li>
+        <li><a href="card37.html">Тема 25</a></li>
+        <li><a href="card38.html">Тема 25</a></li>
+        <li><a href="card39.html">Тема 25</a></li>
+         <li><a href="card40.html">Тема 20</a></li>
+        <li><a href="card41.html">Тема 21</a></li>
+        <li><a href="card42.html">Тема 22</a></li>
+        <li><a href="card43.html">Тема 23</a></li>
+        <li><a href="card44.html">Тема 24</a></li>
+        <li><a href="card45.html">Тема 25</a></li>
+        <li><a href="card46.html">Тема 25</a></li>
+        <li><a href="card47.html">Тема 25</a></li>
+        <li><a href="card48.html">Тема 25</a></li>
+        <li><a href="card49.html">Тема 25</a></li>
+        <li><a href="figma1.html">Тема 25</a></li>
     </ul>
 </div>
   <div id="root" class="marg"></div></div>
-   
+   <script type="text/babel">
+    const container = document.getElementById('root');
+    const root = ReactDOM.createRoot(container);
+    root.render(<App/>);
+
+    function App() {
+      const cards = [];
+      for (const i of [1, 2, 3, 4, 5, 6]) {
+        cards.push(
+          <Card
+            type={i > 4 && 'image'}
+            url={i > 4 && `photo-card-${i}.jpg`}
+            text={i > 4 || `some text ${i}`}
+          />
+        );
+      }
+      return (
+        <section className="game">
+          <ul className="cards">
+            {cards}
+          </ul>
+        </section>
+      );
+    }
+
+    function Card({url, text, type}) {
+      const content = type === 'image'
+        ? <img src={url} width="185" height="100" alt=""/>
+        : <span>{text}</span>;
+      return (
+        <li className="card">
+          {content}
+        </li>
+      );
+    }
+  </script>
   
   <div class="marg">
-   <p></p>
-  </div>
+   <p>Для записи условий с помощью логических выражений можно использовать оператор «ИЛИ» (||).</p>
+   <p>Сейчас значение параметра text заполняется для всех видов карточек. Исправим это. Добавим условие: либо номер карточки больше 4, либо заполняем параметр text. В коде это будет выглядеть так: text={i > 4 || `some text ${i}`}.</p>
+ <img src="sclad11.png" alt="">
+ </div>
 </body>
 </html>
